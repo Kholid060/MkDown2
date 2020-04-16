@@ -2,7 +2,7 @@
   <v-popover>
     <button-ui plain class="lg:inline-block mr-4 hidden text-sm">
       Preview as
-      <v-mdi name="mdi-chevron-down"></v-mdi>
+      <v-mdi name="mdi-chevron-down" class="align-middle"></v-mdi>
     </button-ui>
     <template slot="popover">
       <card-ui class="shadow-xl border">

@@ -1,3 +1,7 @@
+/* purgecss start ignore */
+@import 'highlight.js/scss/atom-one-dark.scss';
+/* purgecss end ignore */
+
 $headers: (h1: 'text-3xl', h2: 'text-2xl', h3: 'text-xl', h4: 'text-lg', h5: 'text-base', h6: 'text-sm');
 
 .markdown-content{
@@ -22,6 +26,9 @@ $headers: (h1: 'text-3xl', h2: 'text-2xl', h3: 'text-xl', h4: 'text-lg', h5: 'te
     font-family: 'Fira Code', monospace;
     @apply bg-light rounded-lg;
   }
+  img{
+    max-width: 100%;
+  }
   pre{
     @apply py-4 px-6;
     code{
@@ -42,10 +49,8 @@ $headers: (h1: 'text-3xl', h2: 'text-2xl', h3: 'text-xl', h4: 'text-lg', h5: 'te
     th, td{
       @apply px-3 py-2 border;
     }
-    tbody{
-      tr:nth-child(odd){
-        @apply bg-light;
-      }
+    tr:nth-child(odd){
+      @apply bg-light;
     }
   }
   ol{

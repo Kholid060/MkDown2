@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueCodemirror from 'vue-codemirror';
 
+
 import 'codemirror/addon/scroll/simplescrollbars';
 import 'codemirror/addon/scroll/simplescrollbars.css';
 import 'codemirror/addon/edit/continuelist';
