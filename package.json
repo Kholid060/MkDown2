@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "now-build": "npm run build",
+    "deploy": "now"
   },
   "dependencies": {
     "@mdi/js": "^5.0.45",
@@ -24,12 +26,10 @@
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "markdown-it-task-lists": "^2.1.1",
-    "now": "^18.0.0",
     "register-service-worker": "^1.6.2",
     "shortid": "^2.2.15",
     "simplebar": "^5.1.0",
     "simplebar-vue": "^1.4.0",
-    "split.js": "^1.5.11",
     "turndown": "^6.0.0",
     "turndown-plugin-gfm": "^1.0.2",
     "v-tooltip": "^2.0.3",
