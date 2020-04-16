@@ -17,6 +17,16 @@ export default {
   data: () => ({
     retrieved: false,
   }),
+  watch: {
+    activeFile({ title }) {
+      document.title = title;
+    },
+  },
+  computed: {
+    activeFile() {
+      return this.$store.getters['files/activeFile'];
+    },
+  },
   created() {
     if (this.$route.name === 'Home') {
       this.$store.dispatch('retrieve').then(() => {
