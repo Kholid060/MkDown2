@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --danger: #{$danger};
+  --warning: #{$warning};
+  --green: #{$green};
+  --text-default: #{$n800};
+  --text-dark: #{$n900};
+  --text-light: #{$n200};
+  --text-lighter: #{$n60};
+  --bg-dark: #{$n800};
+  --bg-darker: #{$n900};
+  --bg-default: #{$n30};
+  --bg-light: #1f2430;
+  --bg-lighter: #232935;
+}

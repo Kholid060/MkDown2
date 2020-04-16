@@ -1,0 +1,39 @@
+.trigger {
+  width: 100%;
+  .select-ui.block {
+    width: 100%;
+  }
+}
+.tooltip.popover.vue-popover-theme.open {
+  z-index: 20;
+}
+.select-ui {
+  @apply bg-lighter px-3 py-2 rounded-lg border;
+  cursor: pointer;
+  display: inline-block;
+  &--inner {
+    display: flex;
+    align-items: center;
+    .text {
+      flex-grow: 1;
+      @apply mr-2;
+    }
+  }
+  &.block {
+    display: block;
+    width: 100%;
+  }
+  &:hover,
+  &:focus {
+    @apply bg-light;
+    outline: none;
+  }
+}
+.select-ui--item {
+  @apply px-3 py-2 rounded-lg;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  &:hover {
+    @apply bg-light;
+  }
+}

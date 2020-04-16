@@ -1,0 +1,19 @@
+{
+  "name": "MkDown",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(js|css|img)/.*",
+      "headers": { "cache-control": "max-age=31536000, immutable" }
+    },
+    { "handle": "filesystem" },
+    { "src": ".*", "dest": "/" }
+  ],
+  "alias": "mkdown.now.sh"
+}

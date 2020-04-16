@@ -1,0 +1,39 @@
+@mixin cardSize($padding) {
+  .card-ui--header {
+    @apply px-#{$padding} pt-#{$padding};
+  }
+  .card-ui--content {
+    @apply p-#{$padding};
+  }
+  .card-ui--content {
+    @apply px-#{$padding} pb-#{$padding};
+  }
+}
+
+.card-ui {
+  @apply rounded-lg;
+  background-color: #2e343f;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  transition-property: background-color, color, box-shadow, transform;
+  min-width: 200px;
+  overflow: hidden;
+  &.disabled {
+    pointer-events: none;
+  }
+  &--image {
+    @apply rounded-tr-lg rounded-tl-lg;
+    transition: transform 0.2s ease;
+    .img-ui {
+      width: 100%;
+    }
+  }
+  &.is-hover:hover {
+    @apply shadow-xl;
+    transform: translateY(-2px);
+  }
+  &.small {
+    @include cardSize(3);
+  }
+  @include cardSize(4);
+}
