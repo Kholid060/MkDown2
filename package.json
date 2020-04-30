@@ -10,7 +10,7 @@
     "deploy": "now"
   },
   "dependencies": {
-    "@mdi/js": "^5.0.45",
+    "@mdi/js": "^5.1.45",
     "codemirror": "^5.52.2",
     "core-js": "^3.6.4",
     "file-saver": "^2.0.2",
