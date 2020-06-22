@@ -17,7 +17,7 @@
     "highlight.js": "^10.1.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.debounce": "^4.0.8",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^11.0.0",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-deflist": "^2.0.3",
     "markdown-it-highlightjs": "^3.1.0",
