@@ -1274,12 +1274,12 @@
     webpack "^4.0.0"
     yorkie "^2.0.0"
 
-"@vue/cli-plugin-pwa@~4.2.0":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-pwa/-/cli-plugin-pwa-4.2.3.tgz#f1c030cbfa7da459d22ee200d79c570ef09ef7b3"
-  integrity sha512-Z5bx8OEmVr44q/roZjDQqkair7LLQRhsLI+reFl+RZq7BPa99qS9y3VFcdZcreneVpEMPd934G7zdDnZmgxXSg==
+"@vue/cli-plugin-pwa@~4.4.6":
+  version "4.4.6"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-pwa/-/cli-plugin-pwa-4.4.6.tgz#f1b8e35822e28c3b6b196673d00a9127f7953937"
+  integrity sha512-TbYKZ60phCdVFiamvaGrIDTKJA0068WJ1i8FiKNEgQaXdGEFCWII3KK4QTIEwgXSNtgY+m2hYx7mZB/y5/9/RA==
   dependencies:
-    "@vue/cli-shared-utils" "^4.2.3"
+    "@vue/cli-shared-utils" "^4.4.6"
     webpack "^4.0.0"
     workbox-webpack-plugin "^4.3.1"
 
@@ -1365,10 +1365,10 @@
     webpack-dev-server "^3.10.2"
     webpack-merge "^4.2.2"
 
-"@vue/cli-shared-utils@^4.2.3", "@vue/cli-shared-utils@^4.3.1", "@vue/cli-shared-utils@^4.4.4":
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.4.4.tgz#b9685b73a604c8a7ee82d6fc3319fe7bb2cdb274"
-  integrity sha512-ccMZtTMSutR35V5nrU/eyj+zRMomTRGBTLwJPmaJ2sRiW/93MTggQGXDWC8JRAA8yiU1N8xza8mjBxS0O2wIAA==
+"@vue/cli-shared-utils@^4.2.3", "@vue/cli-shared-utils@^4.3.1", "@vue/cli-shared-utils@^4.4.4", "@vue/cli-shared-utils@^4.4.6":
+  version "4.4.6"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.4.6.tgz#0ec59880920736c6dd79079ac0b5ceac29fa55e1"
+  integrity sha512-ba+FZZCjiTSu2otnLjY4qXqASe7ZIQ/QBljk5oRPgqrR0p1NUkDPUcZhqa041aOaSW1yAfSfhOD7Q84nMnWhzQ==
   dependencies:
     "@hapi/joi" "^15.0.1"
     chalk "^2.4.2"
@@ -1380,7 +1380,6 @@
     ora "^3.4.0"
     read-pkg "^5.1.1"
     request "^2.88.2"
-    request-promise-native "^1.0.8"
     semver "^6.1.0"
     strip-ansi "^6.0.0"
 
