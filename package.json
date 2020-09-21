@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@mdi/js": "^5.0.45",
-    "codemirror": "^5.52.2",
+    "codemirror": "^5.58.0",
     "core-js": "^3.6.4",
     "file-saver": "^2.0.2",
     "highlight.js": "^10.1.1",
