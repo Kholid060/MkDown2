@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   theme: {
     borderRadius: {
       sm: '0.125rem',
