@@ -1,100 +1,66 @@
 <template>
-  <div class="flex">
-    <side-menu v-if="sideMenu" @close="sideMenu = false"></side-menu>
-    <div :style="{ width: contentWidth }">
-      <Menu v-model="sideMenu"></Menu>
-      <div class="flex" style="height: calc(100vh - 4rem)">
-        <button-ui
-         icon
-         type="primary"
-         round
-         @click="preview = !preview"
-         class="absolute lg:hidden shadow-xl z-20 bottom-0 right-0 m-6">
-          <v-mdi size="28" name="mdi-eye"></v-mdi>
-        </button-ui>
-        <div class="bg-light lg:w-6/12 w-screen" v-show="!preview">
-          <vue-codemirror v-model="markdown"></vue-codemirror>
-        </div>
-        <simplebar
-         data-simplebar-auto-hide="false"
-         class="lg:w-6/12 px-6 py-3 panel2 h-full hidden w-full"
-         :class="{'active-preview': preview}">
-          <preview-content :content="markdown"></preview-content>
-        </simplebar>
-      </div>
+  <main>
+    <app-nav @showSidebar="state.showSidebar = true"></app-nav>
+    <app-sidebar v-if="state.showSidebar" @close="state.showSidebar = false"></app-sidebar>
+    <div v-if="state.retrieved" class="flex relative" style="height: calc(100vh - 64px)">
+      <app-editor
+        v-bind="{ activeFile }"
+        class="lg:w-6/12 w-full lg:block bg-black bg-opacity-10 py-4"
+        :class="{ hidden: state.showPreview }"
+      ></app-editor>
+      <app-preview
+        v-bind="{ file: activeFile }"
+        class="lg:w-6/12 w-full py-4 px-5 overflow-auto scroll lg:block"
+        :class="{ hidden: !state.showPreview }"
+      ></app-preview>
+      <ui-button
+        icon
+        variant="primary"
+        class="shadow-lg lg:hidden bottom-0 right-0 m-5 z-10"
+        style="position: absolute"
+        @click="state.showPreview = !state.showPreview"
+      >
+        <v-mdi :name="state.showPreview ? 'mdi-close' : 'mdi-eye'"></v-mdi>
+      </ui-button>
     </div>
-  </div>
+  </main>
 </template>
 <script>
-import simplebar from 'simplebar-vue';
-import VueCodemirror from '../components/Pages/Home/VueCodemirror.vue';
-import PreviewContent from '../components/Pages/Home/PreviewContent.vue';
+import { computed, shallowReactive, onMounted } from 'vue';
+import { useStore } from 'vuex';
 import syncScroll from '~/utils/syncScroll';
-import Menu from '~/components/Layout/Menu.vue';
-import SideMenu from '~/components/Layout/SideMenu.vue';
-import 'simplebar/dist/simplebar.min.css';
+import AppNav from '~/components/app/AppNav.vue';
+import AppEditor from '~/components/app/AppEditor.vue';
+import AppPreview from '~/components/app/AppPreview.vue';
+import AppSidebar from '~/components/app/AppSidebar.vue';
 
 export default {
-  components: {
-    VueCodemirror, PreviewContent, simplebar, Menu, SideMenu,
-  },
-  data: () => ({
-    contentWidth: '100%',
-    markdown: '',
-    sideMenu: false,
-    preview: false,
-  }),
-  watch: {
-    sideMenu() {
-      this.resizeHandler();
-    },
-  },
-  methods: {
-    resizeHandler() {
-      const width = this.sideMenu ? window.innerWidth - 280 : window.innerWidth;
-      this.contentWidth = `${width}px`;
-    },
-  },
-  created() {
-    window.addEventListener('resize', this.resizeHandler);
-  },
-  mounted() {
-    setTimeout(() => {
-      syncScroll(['.CodeMirror-scroll', '.panel2 .simplebar-content-wrapper']);
-    }, 2000);
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.resizeHandler);
+  components: { AppNav, AppEditor, AppPreview, AppSidebar },
+  setup() {
+    const store = useStore();
+
+    const state = shallowReactive({
+      retrieved: false,
+      showSidebar: false,
+      showPreview: false,
+    });
+
+    const activeFile = computed(() => store.getters['files/active']);
+
+    store.dispatch('retrieve').then(() => {
+      state.retrieved = true;
+    });
+
+    onMounted(() => {
+      setTimeout(() => {
+        syncScroll(['.CodeMirror-scroll', '.preview-container']);
+      }, 2000);
+    });
+
+    return {
+      state,
+      activeFile,
+    };
   },
 };
 </script>
-<style lang="scss">
-.splash{
-  .content{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    text-align: center;
-  }
-}
-@screen lg {
-  .panel2, .gutter.gutter-horizontal{
-    display: inline-block !important;
-  }
-}
-.panel2{
-  @apply overflow-x-hidden overflow-y-auto;
-}
-.active-preview{
-  display: block !important;
-}
-.CodeMirror-overlayscroll-vertical div{
-  background-color: #12151b
-}
-.gutter.gutter-horizontal{
-  display: none;
-  background-color: rgba(255, 255, 255, 0.02);
-  cursor: col-resize
-}
-</style>

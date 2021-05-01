@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue';
 import eslint from '@rollup/plugin-eslint';
 import path from 'path';
-import analyze from 'rollup-plugin-analyzer';
+import { VitePWA } from 'vite-plugin-pwa';
 
 /**
  * @type {import('vite').UserConfig}
@@ -9,6 +9,14 @@ import analyze from 'rollup-plugin-analyzer';
 export default {
   plugins: [
     vue(),
+    VitePWA({
+      manifest: {
+        // content of manifest
+      },
+      workbox: {
+        // workbox options for generateSW
+      },
+    }),
     {
       ...eslint({
         include: ['./src/**/*.vue', './src/**/*.js'],
@@ -18,7 +26,18 @@ export default {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '~': path.resolve(__dirname, './src'),
+    },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'highlight.js': ['highlight.js'],
+          codemirror: ['codemirror'],
+          showdown: ['showdown'],
+        },
+      },
     },
   },
 };

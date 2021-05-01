@@ -6,10 +6,14 @@ export default (selectors) => {
   let timeout;
   const callback = (event) => {
     if (window.innerWidth < 1024 || !store.state.settings.syncScroll) return;
+
     clearTimeout(timeout);
 
     const containFirstSelector = event.target.classList.contains(el1.slice(1, el1.length));
     const target = document.querySelector(containFirstSelector ? el2 : el1);
+
+    if (!target) return;
+
     target.removeEventListener('scroll', callback);
 
     /* Proporsional scroll sync
@@ -28,6 +32,6 @@ export default (selectors) => {
   selectors.forEach((selector) => {
     const el = document.querySelector(selector);
 
-    el.addEventListener('scroll', callback);
+    el && el.addEventListener('scroll', callback);
   });
 };

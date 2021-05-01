@@ -1,52 +1,41 @@
+<template>
+  <app-preview :file="file" :type="$route.params.type"></app-preview>
+</template>
 <script>
-import '~/assets/scss/pages/_markdown.scss';
+import { shallowRef, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import AppPreview from '~/components/app/AppPreview.vue';
 
 export default {
-  data: () => ({
-    content: '',
-    title: '',
-    type: '',
-  }),
-  created() {
-    const getItem = (key) => JSON.parse(localStorage.getItem(key));
+  components: { AppPreview },
+  setup() {
+    const types = ['html', 'markdown', 'styled-html'];
+    const router = useRouter();
+    const { type } = router.currentRoute.value.params;
+    const file = shallowRef({});
 
-    const id = getItem('activeFile');
-    const files = getItem('files');
+    onMounted(() => {
+      const files = JSON.parse(localStorage.getItem('files'));
+      const activeFile = JSON.parse(localStorage.getItem('activeFile'));
 
-    if (id === null || files === null) return;
+      if (!types.includes(type) || !files || !activeFile) return router.push('/');
 
-    const { title, content } = files[id];
-    const { type } = this.$route.params;
+      file.value = files[activeFile];
 
-    this.title = title;
-    this.type = type;
-    if (type === 'markdown') {
-      this.content = content;
-    } else if (type === 'html' || type === 'styled-html') {
-      this.content = this.$md.render(content);
-    }
-  },
-  render(h) {
-    return h('div', {
-      class: {
-        'px-4 py-8 mx-auto lg:w-8/12 w-11/12': this.type === 'styled-html',
-      },
-    }, [
-      h(this.type === 'markdown' ? 'pre' : 'div', {
-        domProps: {
-          innerHTML: this.content,
-        },
-        class: {
-          'markdown-content': this.type === 'styled-html',
-          'whitespace-pre-wrap': this.type === 'markdown',
-        },
-      }),
-    ]);
+      if (!file.value) return router.push('/');
+
+      document.title = file.value.title;
+    });
+
+    return {
+      file,
+    };
   },
 };
 </script>
 <style>
-body{
+body {
   overflow-x: hidden;
 }
 </style>
+

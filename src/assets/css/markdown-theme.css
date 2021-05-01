@@ -1,0 +1,15 @@
+body {
+  font-family: 'Inter', sans-serif;
+  color: theme('colors.gray.50');
+  background-color: theme('colors.gray.800');
+}
+
+.preview-content {
+  @apply py-8 px-4 mx-auto w-full;
+}
+
+@screen lg {
+  .preview-content {
+    @apply w-8/12;
+  }
+}

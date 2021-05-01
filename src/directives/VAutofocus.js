@@ -1,9 +1,5 @@
-import Vue from 'vue';
+export default function (el, { value = true }) {
+  if (!value) return;
 
-Vue.directive('autofocus', {
-  inserted(el, { value = true }) {
-    if (!value) return;
-
-    el.focus();
-  },
-});
+  el.focus();
+}

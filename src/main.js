@@ -1,28 +1,21 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
+import { registerSW } from 'virtual:pwa-register';
 import App from './App.vue';
-import './registerServiceWorker';
 import router from './router';
 import store from './store';
-
-// (S)CSS
+import uiComponents from './components/ui';
+import vMdijs from './lib/vue-mdijs';
+import VTooltip from './directives/VTooltip';
+import VAutofocus from './directives/VAutofocus';
 import './assets/css/tailwind.css';
-import './assets/scss/style.scss';
-import './assets/scss/components/_tooltip.scss';
+import './assets/css/style.css';
+import './assets/css/tooltip.css';
 
-// Plugins
-import './plugins/vue-mdijs';
-import './plugins/v-tooltip';
-import './plugins/vue-codemirror';
-import './plugins/markdown-it';
-import './plugins/vue-toastification';
+registerSW();
 
-import './components/Base';
-import './directives/VAutofocus';
+const app = createApp(App);
 
-Vue.config.productionTip = false;
+app.directive('tooltip', VTooltip);
+app.directive('autofocus', VAutofocus);
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+app.use(store).use(router).use(uiComponents).use(vMdijs).mount('#app');

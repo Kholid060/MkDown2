@@ -1,40 +1,42 @@
 <template>
   <div class="app">
-    <router-view v-if="retrieved" />
+    <router-view />
     <div
-     class="h-full w-full absolute splash"
-     v-else>
-      <div class="content">
-        <h1 class="text-6xl font-bold">MkDown</h1>
-        <p class="text-2xl text-lighter">Online Markdown Editor</p>
-        <p class="text-lighter mt-6">Loading...</p>
+      v-if="needRefresh"
+      class="absolute p-5 absolute z-50 bottom-0 right-0 bg-gray-700 m-5 max-w-xs shadow-xl rounded-xl"
+    >
+      <p class="leading-tight">New content available, click on reload button to update.</p>
+      <div class="space-x-2 flex mt-4">
+        <ui-button class="w-64" @click="needRefresh = false">Close</ui-button>
+        <ui-button variant="primary" class="w-64" @click="updateServiceWorker">Reload</ui-button>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { ref, computed, watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
+import { useRegisterSW } from 'virtual:pwa-register/vue';
+
 export default {
-  data: () => ({
-    retrieved: false,
-  }),
-  watch: {
-    activeFile({ title }) {
-      document.title = title;
-    },
-  },
-  computed: {
-    activeFile() {
-      return this.$store.getters['files/activeFile'];
-    },
-  },
-  created() {
-    if (this.$route.name === 'Home') {
-      this.$store.dispatch('retrieve').then(() => {
-        this.retrieved = true;
-      });
-    } else {
-      this.retrieved = true;
-    }
+  setup() {
+    const store = useStore();
+    const { needRefresh, updateServiceWorker } = useRegisterSW();
+
+    watch(
+      () => store.state.files.activeFile,
+      () => {
+        const activeFile = store.getters['files/active'];
+
+        document.title = activeFile.title;
+      }
+    );
+
+    return {
+      needRefresh,
+      updateServiceWorker,
+    };
   },
 };
 </script>
