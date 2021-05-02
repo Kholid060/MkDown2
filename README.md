@@ -1,3 +1,5 @@
+![image](./public/image.png)
+
 # MkDown
 
 MkDown is an online markdown editor built with [vueJs](https://vuejs.org)

@@ -1,14 +1,14 @@
-import camelCase from 'lodash.camelcase';
-
-const requireModule = require.context('.', false, /\.store\.js$/);
+const requireModule = import.meta.globEager('./*.store.js');
 const modules = {};
 
-requireModule.keys().forEach((fileName) => {
-  if (fileName === './index.js') return;
-  const moduleName = camelCase(fileName.replace(/\.store\.js$/, ''));
-  modules[moduleName] = {
+for (const path in requireModule) {
+  const data = requireModule[path].default;
+  const name = data.name || path.replace(/^.\/|.store\.js$/gi, '');
+
+  modules[name] = {
     namespaced: true,
-    ...requireModule(fileName).default,
+    ...data,
   };
-});
+}
+
 export default modules;

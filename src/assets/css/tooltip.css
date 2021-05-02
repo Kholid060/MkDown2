@@ -1,0 +1,11 @@
+.tippy-box[data-theme~='my-theme'] {
+  @apply bg-gray-900 py-2 px-4 text-sm shadow-xl rounded-lg text-gray-100;
+}
+
+.tippy-box[data-theme~='my-theme'] > .tippy-svg-arrow {
+  fill: theme('colors.gray.900');
+}
+
+.tippy-box[role~='popover'] > .tippy-svg-arrow {
+  fill: theme('colors.gray.700') !important;
+}
