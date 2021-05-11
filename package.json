@@ -15,7 +15,7 @@
     "highlight.js": "^10.1.1",
     "localforage": "^1.9.0",
     "lodash.camelcase": "^4.3.0",
-    "nanoid": "^3.1.22",
+    "nanoid": "^3.1.23",
     "showdown": "^1.9.1",
     "tippy.js": "^6.3.1",
     "vue": "^3.0.11",
