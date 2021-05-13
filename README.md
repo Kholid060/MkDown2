@@ -4,7 +4,7 @@
 
 MkDown is an online markdown editor built with [vueJs](https://vuejs.org)
 
-> Demo [here](https://mkdown.now.sh)
+> Demo [here](https://mkdown.vercel.app)
 
 
 ## Feature
