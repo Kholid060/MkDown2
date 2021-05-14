@@ -20,7 +20,7 @@
     "tippy.js": "^6.3.1",
     "vue": "^3.0.11",
     "vue-mdijs": "^0.5.0",
-    "vue-router": "^4.0.6",
+    "vue-router": "^4.0.8",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
