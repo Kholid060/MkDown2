@@ -16,21 +16,47 @@ MkDown is an online markdown editor built with [vueJs](https://vuejs.org)
 And I think that's it
 
 ## Project setup
+
+### Docker
+
+#### Help
 ```
-yarn install
+make
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
+```
+make dev
+```
+go to http://localhost:3000
+
+#### Compiles and minifies for production
+```
+make build
+```
+
+#### Run production server
+```
+make production
+```
+go to http://localhost:4127
+
+### Node
+```
+yarn
+```
+
+#### Compiles and hot-reloads for development
 ```
 yarn dev
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 ```
 yarn build
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 yarn lint
 ```
