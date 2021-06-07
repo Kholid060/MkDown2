@@ -12,7 +12,7 @@
     "@mdi/js": "^5.7.55",
     "codemirror": "^5.61.1",
     "file-saver": "^2.0.2",
-    "highlight.js": "^11.0.0",
+    "highlight.js": "^11.0.1",
     "localforage": "^1.9.0",
     "lodash.camelcase": "^4.3.0",
     "nanoid": "^3.1.23",
@@ -35,10 +35,10 @@
     "eslint-plugin-vue": "^7.10.0",
     "postcss": "^8.3.0",
     "postcss-nested": "^5.0.5",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "rollup-plugin-analyzer": "^4.0.0",
-    "tailwindcss": "^2.1.1",
     "vite": "^2.3.6",
+    "tailwindcss": "^2.1.4",
     "vite-plugin-pwa": "^0.7.3"
   },
   "config": {
