@@ -44,7 +44,17 @@
         id="name"
         v-model="state.tempTitle"
         v-autofocus
-        class="rounded-xl bg-gray-100 bg-opacity-5 border-opacity-10 transition focus:ring focus:ring-opacity-50 py-2 px-4 transition w-full"
+        class="
+          rounded-xl
+          bg-gray-100 bg-opacity-5
+          border-opacity-10
+          transition
+          focus:ring focus:ring-opacity-50
+          py-2
+          px-4
+          transition
+          w-full
+        "
       />
       <div class="flex items-center space-x-2 mt-8">
         <ui-button class="w-6/12" @click="state.showRenameModal = false"> Cancel </ui-button>
