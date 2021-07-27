@@ -3,8 +3,9 @@
 </template>
 <script>
 import { onMounted, ref, watch } from 'vue';
-import showdown from '~/lib/showdown';
 import highlightTheme from 'highlight.js/styles/atom-one-dark.css';
+import filterXSS from 'xss';
+import showdown from '~/lib/showdown';
 import markdownTheme from '~/assets/css/markdown.css';
 
 export default {
@@ -21,8 +22,14 @@ export default {
   setup(props) {
     const container = ref(null);
 
-    const content = () =>
-      props.type === 'markdown' ? props.file.content : showdown.makeHtml(props.file.content || '');
+    function content() {
+      if (props.type === 'markdown') return props.file.content;
+
+      const html = showdown.makeHtml(props.file.content || '');
+      const sanitizedHTML = filterXSS(html);
+
+      return sanitizedHTML;
+    }
 
     watch(
       () => props.file,
