@@ -40,7 +40,7 @@
     "rollup-plugin-analyzer": "^4.0.0",
     "tailwindcss": "2.2.7",
     "vite": "2.4.4",
-    "vite-plugin-pwa": "0.8.2"
+    "vite-plugin-pwa": "0.9.3"
   },
   "config": {
     "commitizen": {
