@@ -4262,10 +4262,10 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
 
-vite-plugin-pwa@0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.9.3.tgz#3c03df1e7b8c9a6406882b2f475d3920fecd2da9"
-  integrity sha512-o7UD6zMssH60dblwcTKqPeESlv1iF6tPQq2dx2N9smYMh5e5A6rlwWivV4fN8Nq2PVj82itcGRycIHDT+j32vg==
+vite-plugin-pwa@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.10.0.tgz#56ea6c19b696c8901736aac97f9f316d3090a7c3"
+  integrity sha512-QTI2OshRFR46JFS3KLVXXdIyhy+eO5pO3ezbeIXRAMNlUPJuB/r5sXhpRUGRZIkbrIq+UwSULNsCaNo8Ux5ZqA==
   dependencies:
     debug "^4.3.2"
     fast-glob "^3.2.7"
