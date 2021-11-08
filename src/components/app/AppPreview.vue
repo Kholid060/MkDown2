@@ -4,7 +4,6 @@
 <script>
 import { onMounted, ref, watch } from 'vue';
 import highlightTheme from 'highlight.js/styles/atom-one-dark.css';
-import filterXSS from 'xss';
 import showdown from '~/lib/showdown';
 import markdownTheme from '~/assets/css/markdown.css';
 
@@ -25,10 +24,7 @@ export default {
     function content() {
       if (props.type === 'markdown') return props.file.content;
 
-      const html = showdown.makeHtml(props.file.content || '');
-      const sanitizedHTML = filterXSS(html);
-
-      return sanitizedHTML;
+      return showdown.makeHtml(props.file.content || '');
     }
 
     watch(
