@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mdi/js": "^5.7.55",
-    "codemirror": "^5.62.2",
+    "codemirror": "^5.65.3",
     "file-saver": "2.0.5",
     "highlight.js": "11.2.0",
     "localforage": "^1.9.0",
