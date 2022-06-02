@@ -33,7 +33,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier-vue": "3.1.0",
-    "eslint-plugin-vue": "7.15.0",
+    "eslint-plugin-vue": "9.1.0",
     "postcss": "8.3.6",
     "postcss-nested": "^5.0.6",
     "prettier": "2.3.2",
